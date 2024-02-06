@@ -17,10 +17,16 @@ function Counter() {
   const date = new Date(currentDate);
   date.setDate(date.getDate() + count);
 
+  const decrementStep = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
   return (
     <div className="Counter">
       <div>
-        <button onClick={() => setStep((c) => c - 1)}>-</button>
+        <button onClick={decrementStep}>-</button>
         <span>Step: {step}</span>
         <button onClick={() => setStep((c) => c + 1)}>+</button>
       </div><br></br>
@@ -36,7 +42,7 @@ function Counter() {
           {count === 0
             ? "Today is "
             : count > 0
-            ? `${count} days from today is `
+            ? `${count} days from today is: `
             : `${Math.abs(count)} days ago was `}
         </span>
         <span>{date.toDateString()}</span>
