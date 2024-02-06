@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 export default function App() {
   return (
@@ -12,16 +13,17 @@ function Counter() {
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
 
-  const date = new Date("june 21 2027");
+  const currentDate = new Date();
+  const date = new Date(currentDate);
   date.setDate(date.getDate() + count);
 
   return (
-    <div>
+    <div className="Counter">
       <div>
         <button onClick={() => setStep((c) => c - 1)}>-</button>
         <span>Step: {step}</span>
         <button onClick={() => setStep((c) => c + 1)}>+</button>
-      </div>
+      </div><br></br>
 
       <div>
         <button onClick={() => setCount((c) => c - step)}>-</button>
